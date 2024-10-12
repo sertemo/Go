@@ -327,11 +327,10 @@ func main() {
 }
 ```
 
-15. Manejo de errores
+### 15. Manejo de errores
 Error estándar:
 
-go
-Copiar código
+```go
 import "errors"
 
 func dividir(a, b float64) (float64, error) {
@@ -347,11 +346,14 @@ if err != nil {
 } else {
     fmt.Println("Resultado:", resultado)
 }
-16. Lectura y escritura de archivos
+```
+
+
+### 16. Lectura y escritura de archivos
 Escribir en un archivo:
 
-go
-Copiar código
+```go
+
 import (
     "fmt"
     "os"
@@ -367,10 +369,11 @@ func main() {
 
     file.WriteString("¡Hola, archivo!")
 }
+```
+
 Leer de un archivo:
 
-go
-Copiar código
+```go
 import (
     "fmt"
     "io/ioutil"
@@ -384,11 +387,13 @@ func main() {
     }
     fmt.Println(string(contenido))
 }
-17. HTTP y servidores web
+```
+
+### 17. HTTP y servidores web
 Servidor HTTP básico:
 
-go
-Copiar código
+```go
+
 import (
     "fmt"
     "net/http"
@@ -403,14 +408,17 @@ func main() {
     fmt.Println("Servidor escuchando en el puerto 8080")
     http.ListenAndServe(":8080", nil)
 }
+```
 Accede a http://localhost:8080 en tu navegador.
 
-18. Buenas prácticas y herramientas
-Formatear código: go fmt
-Analizar código estático: go vet
-Pruebas unitarias: Usa el paquete testing y ejecuta go test.
-Documentación: Añade comentarios y genera documentación con godoc.
-19. Recursos adicionales
-Documentación oficial: https://golang.org/doc/
-Tour de Go: https://tour.golang.org/welcome/1
-Libros y cursos en línea: Hay numerosos recursos gratuitos y de pago para profundizar.
+### 18. Buenas prácticas y herramientas
+- Formatear código: go fmt
+- Analizar código estático: go vet
+- Pruebas unitarias: Usa el paquete testing y ejecuta go test.
+- Documentación: Añade comentarios y genera documentación con godoc.
+
+
+### 19. Recursos adicionales
+- Documentación oficial: https://golang.org/doc/
+- Tour de Go: https://tour.golang.org/welcome/1
+- Libros y cursos en línea: Hay numerosos recursos gratuitos y de pago para profundizar.
