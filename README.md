@@ -2,6 +2,7 @@
 ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
 
 Repositorio para aprender conceptos del lenguaje Go siguiendo algunos tutorial de Youtube:
+- [Nana](https://www.youtube.com/watch?v=yyUHQIec83I)
 - [Alex Mux](https://www.youtube.com/watch?v=8uiZC0l4Ajw&list=WL&index=2)
 - [freeCodeCamp.org](https://www.youtube.com/watch?v=un6ZyFkqFKo&list=WL&index=3&t=341s)
 
@@ -422,3 +423,398 @@ Accede a http://localhost:8080 en tu navegador.
 - Documentación oficial: https://golang.org/doc/
 - Tour de Go: https://tour.golang.org/welcome/1
 - Libros y cursos en línea: Hay numerosos recursos gratuitos y de pago para profundizar.
+
+
+## Keywords
+break
+
+Termina de inmediato el bucle o la sentencia switch en la que se encuentra.
+
+go
+Copiar código
+for i := 0; i < 10; i++ {
+    if i == 5 {
+        break
+    }
+    fmt.Println(i)
+}
+// Imprime números del 0 al 4 y luego se detiene.
+case
+
+Especifica una condición en una sentencia switch o select para comparar valores.
+
+go
+Copiar código
+switch day := "lunes"; day {
+case "lunes":
+    fmt.Println("Inicio de semana")
+case "viernes":
+    fmt.Println("Fin de semana")
+default:
+    fmt.Println("Día intermedio")
+}
+// Salida: Inicio de semana
+chan
+
+Declara un canal, que es una vía para la comunicación entre goroutines.
+
+go
+Copiar código
+c := make(chan string)
+go func() {
+    c <- "Mensaje desde la goroutine"
+}()
+msg := <-c
+fmt.Println(msg)
+// Salida: Mensaje desde la goroutine
+const
+
+Declara una constante, un valor que no puede ser modificado después de su definición.
+
+go
+Copiar código
+const Pi = 3.1416
+fmt.Println("El valor de Pi es:", Pi)
+// Salida: El valor de Pi es: 3.1416
+continue
+
+Salta a la siguiente iteración del bucle, omitiendo el resto del código en la iteración actual.
+
+go
+Copiar código
+for i := 0; i < 5; i++ {
+    if i == 2 {
+        continue
+    }
+    fmt.Println(i)
+}
+// Imprime 0, 1, 3, 4 (omite el 2)
+default
+
+Especifica el bloque de código a ejecutar en una sentencia switch o select si no hay coincidencia con los casos anteriores.
+
+go
+Copiar código
+color := "verde"
+switch color {
+case "rojo":
+    fmt.Println("El color es rojo")
+case "azul":
+    fmt.Println("El color es azul")
+default:
+    fmt.Println("Color no reconocido")
+}
+// Salida: Color no reconocido
+defer
+
+Retrasa la ejecución de una función hasta que la función que la contiene finaliza.
+
+go
+Copiar código
+func main() {
+    defer fmt.Println("Esto se ejecuta al final")
+    fmt.Println("Esto se ejecuta primero")
+}
+// Salida:
+// Esto se ejecuta primero
+// Esto se ejecuta al final
+else
+
+Especifica el bloque de código a ejecutar si la condición en un if es falsa.
+
+go
+Copiar código
+edad := 16
+if edad >= 18 {
+    fmt.Println("Eres mayor de edad")
+} else {
+    fmt.Println("Eres menor de edad")
+}
+// Salida: Eres menor de edad
+fallthrough
+
+En una sentencia switch, permite que la ejecución continúe al siguiente caso sin evaluar su condición.
+
+go
+Copiar código
+number := 1
+switch number {
+case 1:
+    fmt.Println("Uno")
+    fallthrough
+case 2:
+    fmt.Println("Dos")
+default:
+    fmt.Println("Otro número")
+}
+// Salida:
+// Uno
+// Dos
+for
+
+Inicia un bucle, que puede ser con una condición, con una cláusula de inicialización y post, o un bucle infinito.
+
+go
+Copiar código
+// Bucle clásico
+for i := 0; i < 3; i++ {
+    fmt.Println(i)
+}
+
+// Bucle como 'while'
+i := 0
+for i < 3 {
+    fmt.Println(i)
+    i++
+}
+
+// Bucle infinito
+for {
+    fmt.Println("Bucle infinito")
+    break // Necesario para salir del bucle
+}
+func
+
+Declara una función o un método.
+
+go
+Copiar código
+func suma(a int, b int) int {
+    return a + b
+}
+
+resultado := suma(3, 4)
+fmt.Println("Resultado:", resultado)
+// Salida: Resultado: 7
+go
+
+Inicia una goroutine, es decir, ejecuta una función de forma concurrente.
+
+go
+Copiar código
+func decirHola() {
+    fmt.Println("Hola")
+}
+
+go decirHola()
+fmt.Println("Mundo")
+
+// Salida:
+// Mundo
+// Hola
+// (El orden puede variar debido a la concurrencia)
+goto
+
+Transfiere el control de ejecución a una etiqueta específica dentro de la función actual.
+
+go
+Copiar código
+func main() {
+    for i := 0; i < 5; i++ {
+        if i == 3 {
+            goto Salir
+        }
+        fmt.Println(i)
+    }
+Salir:
+    fmt.Println("Se utilizó goto para salir del bucle")
+}
+// Salida:
+// 0
+// 1
+// 2
+// Se utilizó goto para salir del bucle
+if
+
+Inicia una estructura condicional que ejecuta un bloque de código si la condición es verdadera.
+
+go
+Copiar código
+temperatura := 30
+if temperatura > 25 {
+    fmt.Println("Hace calor")
+}
+// Salida: Hace calor
+import
+
+Importa paquetes para utilizar sus funciones y tipos en el programa actual.
+
+go
+Copiar código
+import (
+    "fmt"
+    "math"
+)
+
+func main() {
+    raiz := math.Sqrt(16)
+    fmt.Println("La raíz cuadrada de 16 es:", raiz)
+}
+// Salida: La raíz cuadrada de 16 es: 4
+interface
+
+Declara una interfaz, un conjunto de métodos que un tipo puede implementar.
+
+go
+Copiar código
+type Forma interface {
+    Area() float64
+}
+
+type Cuadrado struct {
+    Lado float64
+}
+
+func (c Cuadrado) Area() float64 {
+    return c.Lado * c.Lado
+}
+
+func main() {
+    var f Forma = Cuadrado{Lado: 5}
+    fmt.Println("Área del cuadrado:", f.Area())
+}
+// Salida: Área del cuadrado: 25
+map
+
+Declara un mapa, una estructura de datos que almacena pares clave-valor desordenados.
+
+go
+Copiar código
+capitales := map[string]string{
+    "España":     "Madrid",
+    "Francia":    "París",
+    "Argentina":  "Buenos Aires",
+}
+
+fmt.Println("La capital de Francia es:", capitales["Francia"])
+// Salida: La capital de Francia es: París
+package
+
+Especifica el paquete al que pertenece el archivo fuente.
+
+go
+Copiar código
+// En el archivo main.go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Programa principal")
+}
+range
+
+Itera sobre elementos en una variedad de estructuras de datos como arrays, slices, mapas y canales.
+
+go
+Copiar código
+numeros := []int{10, 20, 30}
+for indice, valor := range numeros {
+    fmt.Printf("Índice: %d, Valor: %d\n", indice, valor)
+}
+// Salida:
+// Índice: 0, Valor: 10
+// Índice: 1, Valor: 20
+// Índice: 2, Valor: 30
+return
+
+Finaliza la ejecución de una función y opcionalmente devuelve uno o más valores.
+
+go
+Copiar código
+func doble(n int) int {
+    return n * 2
+}
+
+resultado := doble(4)
+fmt.Println("El doble es:", resultado)
+// Salida: El doble es: 8
+select
+
+Espera en múltiples operaciones de envío o recepción en canales y ejecuta el caso que esté listo.
+
+go
+Copiar código
+c1 := make(chan string)
+c2 := make(chan string)
+
+go func() {
+    c1 <- "Mensaje 1"
+}()
+
+go func() {
+    c2 <- "Mensaje 2"
+}()
+
+select {
+case msg1 := <-c1:
+    fmt.Println(msg1)
+case msg2 := <-c2:
+    fmt.Println(msg2)
+}
+// Salida: Puede ser "Mensaje 1" o "Mensaje 2" dependiendo de cuál canal esté listo primero.
+struct
+
+Declara una estructura, un tipo de datos compuesto que agrupa campos bajo un mismo nombre.
+
+go
+Copiar código
+type Persona struct {
+    Nombre string
+    Edad   int
+}
+
+func main() {
+    p := Persona{Nombre: "Lucas", Edad: 30}
+    fmt.Println("Nombre:", p.Nombre)
+    fmt.Println("Edad:", p.Edad)
+}
+// Salida:
+// Nombre: Lucas
+// Edad: 30
+switch
+
+Inicia una estructura de control que selecciona entre múltiples casos basados en el valor de una expresión.
+
+go
+Copiar código
+nota := 85
+switch {
+case nota >= 90:
+    fmt.Println("Excelente")
+case nota >= 80:
+    fmt.Println("Muy bien")
+case nota >= 70:
+    fmt.Println("Bien")
+default:
+    fmt.Println("Necesita mejorar")
+}
+// Salida: Muy bien
+type
+
+Declara un nuevo tipo de dato o define un alias para un tipo existente.
+
+go
+Copiar código
+type Texto string
+
+func main() {
+    var mensaje Texto = "Hola, mundo"
+    fmt.Println(mensaje)
+}
+// Salida: Hola, mundo
+var
+
+Declara una o más variables, opcionalmente con valores iniciales.
+
+go
+Copiar código
+var nombre string = "Ana"
+var edad int
+edad = 28
+
+fmt.Println("Nombre:", nombre)
+fmt.Println("Edad:", edad)
+// Salida:
+// Nombre: Ana
+// Edad: 28
