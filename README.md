@@ -426,12 +426,11 @@ Accede a http://localhost:8080 en tu navegador.
 
 
 ## Keywords
-break
+`break`
 
 Termina de inmediato el bucle o la sentencia switch en la que se encuentra.
 
-go
-Copiar código
+```go
 for i := 0; i < 10; i++ {
     if i == 5 {
         break
@@ -439,12 +438,13 @@ for i := 0; i < 10; i++ {
     fmt.Println(i)
 }
 // Imprime números del 0 al 4 y luego se detiene.
-case
+```
+
+`case`
 
 Especifica una condición en una sentencia switch o select para comparar valores.
 
-go
-Copiar código
+```go
 switch day := "lunes"; day {
 case "lunes":
     fmt.Println("Inicio de semana")
@@ -454,47 +454,54 @@ default:
     fmt.Println("Día intermedio")
 }
 // Salida: Inicio de semana
-chan
+```
+
+`chan`
 
 Declara un canal, que es una vía para la comunicación entre goroutines.
 
-go
-Copiar código
+```go
 c := make(chan string)
+
 go func() {
     c <- "Mensaje desde la goroutine"
 }()
 msg := <-c
 fmt.Println(msg)
 // Salida: Mensaje desde la goroutine
-const
+```
+
+`const`
 
 Declara una constante, un valor que no puede ser modificado después de su definición.
 
-go
-Copiar código
+```go
 const Pi = 3.1416
 fmt.Println("El valor de Pi es:", Pi)
+```
 // Salida: El valor de Pi es: 3.1416
-continue
+
+
+`continue`
 
 Salta a la siguiente iteración del bucle, omitiendo el resto del código en la iteración actual.
 
-go
-Copiar código
+```go
 for i := 0; i < 5; i++ {
     if i == 2 {
         continue
     }
     fmt.Println(i)
 }
+```
 // Imprime 0, 1, 3, 4 (omite el 2)
-default
+
+
+`default`
 
 Especifica el bloque de código a ejecutar en una sentencia switch o select si no hay coincidencia con los casos anteriores.
 
-go
-Copiar código
+```go
 color := "verde"
 switch color {
 case "rojo":
@@ -504,39 +511,42 @@ case "azul":
 default:
     fmt.Println("Color no reconocido")
 }
+```
 // Salida: Color no reconocido
-defer
+
+`defer`
 
 Retrasa la ejecución de una función hasta que la función que la contiene finaliza.
 
-go
-Copiar código
+```go
 func main() {
     defer fmt.Println("Esto se ejecuta al final")
     fmt.Println("Esto se ejecuta primero")
 }
+```
 // Salida:
 // Esto se ejecuta primero
 // Esto se ejecuta al final
-else
+
+`else`
 
 Especifica el bloque de código a ejecutar si la condición en un if es falsa.
 
-go
-Copiar código
+```go
 edad := 16
 if edad >= 18 {
     fmt.Println("Eres mayor de edad")
 } else {
     fmt.Println("Eres menor de edad")
 }
+```
 // Salida: Eres menor de edad
-fallthrough
+
+`fallthrough`
 
 En una sentencia switch, permite que la ejecución continúe al siguiente caso sin evaluar su condición.
 
-go
-Copiar código
+```go
 number := 1
 switch number {
 case 1:
@@ -547,15 +557,16 @@ case 2:
 default:
     fmt.Println("Otro número")
 }
+```
 // Salida:
 // Uno
 // Dos
-for
+
+`for`
 
 Inicia un bucle, que puede ser con una condición, con una cláusula de inicialización y post, o un bucle infinito.
 
-go
-Copiar código
+```go
 // Bucle clásico
 for i := 0; i < 3; i++ {
     fmt.Println(i)
@@ -573,42 +584,44 @@ for {
     fmt.Println("Bucle infinito")
     break // Necesario para salir del bucle
 }
-func
+```
+
+`func`
 
 Declara una función o un método.
 
-go
-Copiar código
+```go
 func suma(a int, b int) int {
     return a + b
 }
 
 resultado := suma(3, 4)
 fmt.Println("Resultado:", resultado)
+```
 // Salida: Resultado: 7
-go
+
+`go` 
 
 Inicia una goroutine, es decir, ejecuta una función de forma concurrente.
 
-go
-Copiar código
+```go
 func decirHola() {
     fmt.Println("Hola")
 }
 
 go decirHola()
 fmt.Println("Mundo")
-
+```
 // Salida:
 // Mundo
 // Hola
 // (El orden puede variar debido a la concurrencia)
-goto
+
+`goto`
 
 Transfiere el control de ejecución a una etiqueta específica dentro de la función actual.
 
-go
-Copiar código
+```go
 func main() {
     for i := 0; i < 5; i++ {
         if i == 3 {
@@ -619,28 +632,30 @@ func main() {
 Salir:
     fmt.Println("Se utilizó goto para salir del bucle")
 }
+```
 // Salida:
 // 0
 // 1
 // 2
 // Se utilizó goto para salir del bucle
-if
+
+`if`
 
 Inicia una estructura condicional que ejecuta un bloque de código si la condición es verdadera.
 
-go
-Copiar código
+```go
 temperatura := 30
 if temperatura > 25 {
     fmt.Println("Hace calor")
 }
+```
 // Salida: Hace calor
-import
+
+`import`
 
 Importa paquetes para utilizar sus funciones y tipos en el programa actual.
 
-go
-Copiar código
+```go
 import (
     "fmt"
     "math"
@@ -650,13 +665,14 @@ func main() {
     raiz := math.Sqrt(16)
     fmt.Println("La raíz cuadrada de 16 es:", raiz)
 }
+`
 // Salida: La raíz cuadrada de 16 es: 4
-interface
+
+`interface`
 
 Declara una interfaz, un conjunto de métodos que un tipo puede implementar.
 
-go
-Copiar código
+```go
 type Forma interface {
     Area() float64
 }
@@ -673,13 +689,14 @@ func main() {
     var f Forma = Cuadrado{Lado: 5}
     fmt.Println("Área del cuadrado:", f.Area())
 }
+```
 // Salida: Área del cuadrado: 25
-map
+
+`map`
 
 Declara un mapa, una estructura de datos que almacena pares clave-valor desordenados.
 
-go
-Copiar código
+```go
 capitales := map[string]string{
     "España":     "Madrid",
     "Francia":    "París",
@@ -687,13 +704,15 @@ capitales := map[string]string{
 }
 
 fmt.Println("La capital de Francia es:", capitales["Francia"])
+```
 // Salida: La capital de Francia es: París
-package
+
+
+`package`
 
 Especifica el paquete al que pertenece el archivo fuente.
 
-go
-Copiar código
+```go
 // En el archivo main.go
 package main
 
@@ -702,39 +721,43 @@ import "fmt"
 func main() {
     fmt.Println("Programa principal")
 }
-range
+```
+
+`range`
 
 Itera sobre elementos en una variedad de estructuras de datos como arrays, slices, mapas y canales.
 
-go
-Copiar código
+```go
 numeros := []int{10, 20, 30}
 for indice, valor := range numeros {
     fmt.Printf("Índice: %d, Valor: %d\n", indice, valor)
 }
+```
 // Salida:
 // Índice: 0, Valor: 10
 // Índice: 1, Valor: 20
 // Índice: 2, Valor: 30
-return
+
+
+`return`
 
 Finaliza la ejecución de una función y opcionalmente devuelve uno o más valores.
 
-go
-Copiar código
+```go
 func doble(n int) int {
     return n * 2
 }
 
 resultado := doble(4)
 fmt.Println("El doble es:", resultado)
+```
 // Salida: El doble es: 8
-select
+
+`select`
 
 Espera en múltiples operaciones de envío o recepción en canales y ejecuta el caso que esté listo.
 
-go
-Copiar código
+```go
 c1 := make(chan string)
 c2 := make(chan string)
 
@@ -752,13 +775,14 @@ case msg1 := <-c1:
 case msg2 := <-c2:
     fmt.Println(msg2)
 }
+```
 // Salida: Puede ser "Mensaje 1" o "Mensaje 2" dependiendo de cuál canal esté listo primero.
-struct
+
+`struct`
 
 Declara una estructura, un tipo de datos compuesto que agrupa campos bajo un mismo nombre.
 
-go
-Copiar código
+```go
 type Persona struct {
     Nombre string
     Edad   int
@@ -769,15 +793,16 @@ func main() {
     fmt.Println("Nombre:", p.Nombre)
     fmt.Println("Edad:", p.Edad)
 }
+```
 // Salida:
 // Nombre: Lucas
 // Edad: 30
-switch
+
+`switch`
 
 Inicia una estructura de control que selecciona entre múltiples casos basados en el valor de una expresión.
 
-go
-Copiar código
+```go
 nota := 85
 switch {
 case nota >= 90:
@@ -789,32 +814,35 @@ case nota >= 70:
 default:
     fmt.Println("Necesita mejorar")
 }
+```
 // Salida: Muy bien
-type
+
+`type`
 
 Declara un nuevo tipo de dato o define un alias para un tipo existente.
 
-go
-Copiar código
+```go
 type Texto string
 
 func main() {
     var mensaje Texto = "Hola, mundo"
     fmt.Println(mensaje)
 }
+```
 // Salida: Hola, mundo
-var
+
+`var`
 
 Declara una o más variables, opcionalmente con valores iniciales.
 
-go
-Copiar código
+```go
 var nombre string = "Ana"
 var edad int
 edad = 28
 
 fmt.Println("Nombre:", nombre)
 fmt.Println("Edad:", edad)
+```
 // Salida:
 // Nombre: Ana
 // Edad: 28
