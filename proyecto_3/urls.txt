@@ -1,0 +1,6 @@
+https://books.toscrape.com/catalogue/category/books/travel_2/index.html
+https://books.toscrape.com/catalogue/category/books/default_15/index.html
+https://books.toscrape.com/catalogue/category/books/fantasy_19/index.html
+https://books.toscrape.com/catalogue/category/books/psychology_26/index.html
+https://books.toscrape.com/catalogue/category/books/history_32/index.html
+https://books.toscrape.com/catalogue/category/books/business_35/index.html
