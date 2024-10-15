@@ -3,6 +3,7 @@
 
 Repositorio para aprender conceptos del lenguaje Go siguiendo algunos tutorial de Youtube:
 - [Nana](https://www.youtube.com/watch?v=yyUHQIec83I)
+- [Nana Crash Crouse](https://www.youtube.com/watch?v=XCZWyN9ZbEQ&t=42s)
 - [Alex Mux](https://www.youtube.com/watch?v=8uiZC0l4Ajw&list=WL&index=2)
 - [freeCodeCamp.org](https://www.youtube.com/watch?v=un6ZyFkqFKo&list=WL&index=3&t=341s)
 
@@ -478,8 +479,8 @@ Declara una constante, un valor que no puede ser modificado después de su defin
 ```go
 const Pi = 3.1416
 fmt.Println("El valor de Pi es:", Pi)
-```
 // Salida: El valor de Pi es: 3.1416
+```
 
 
 `continue`
@@ -493,8 +494,8 @@ for i := 0; i < 5; i++ {
     }
     fmt.Println(i)
 }
-```
 // Imprime 0, 1, 3, 4 (omite el 2)
+```
 
 
 `default`
@@ -511,8 +512,8 @@ case "azul":
 default:
     fmt.Println("Color no reconocido")
 }
-```
 // Salida: Color no reconocido
+```
 
 `defer`
 
@@ -523,10 +524,10 @@ func main() {
     defer fmt.Println("Esto se ejecuta al final")
     fmt.Println("Esto se ejecuta primero")
 }
-```
 // Salida:
 // Esto se ejecuta primero
 // Esto se ejecuta al final
+```
 
 `else`
 
@@ -539,8 +540,8 @@ if edad >= 18 {
 } else {
     fmt.Println("Eres menor de edad")
 }
-```
 // Salida: Eres menor de edad
+```
 
 `fallthrough`
 
@@ -557,10 +558,10 @@ case 2:
 default:
     fmt.Println("Otro número")
 }
-```
 // Salida:
 // Uno
 // Dos
+```
 
 `for`
 
@@ -597,8 +598,8 @@ func suma(a int, b int) int {
 
 resultado := suma(3, 4)
 fmt.Println("Resultado:", resultado)
-```
 // Salida: Resultado: 7
+```
 
 `go` 
 
@@ -611,11 +612,11 @@ func decirHola() {
 
 go decirHola()
 fmt.Println("Mundo")
-```
 // Salida:
 // Mundo
 // Hola
 // (El orden puede variar debido a la concurrencia)
+```
 
 `goto`
 
@@ -632,12 +633,12 @@ func main() {
 Salir:
     fmt.Println("Se utilizó goto para salir del bucle")
 }
-```
 // Salida:
 // 0
 // 1
 // 2
 // Se utilizó goto para salir del bucle
+```
 
 `if`
 
@@ -648,8 +649,8 @@ temperatura := 30
 if temperatura > 25 {
     fmt.Println("Hace calor")
 }
-```
 // Salida: Hace calor
+```
 
 `import`
 
@@ -689,8 +690,8 @@ func main() {
     var f Forma = Cuadrado{Lado: 5}
     fmt.Println("Área del cuadrado:", f.Area())
 }
-```
 // Salida: Área del cuadrado: 25
+```
 
 `map`
 
@@ -704,8 +705,8 @@ capitales := map[string]string{
 }
 
 fmt.Println("La capital de Francia es:", capitales["Francia"])
-```
 // Salida: La capital de Francia es: París
+```
 
 
 `package`
@@ -732,11 +733,11 @@ numeros := []int{10, 20, 30}
 for indice, valor := range numeros {
     fmt.Printf("Índice: %d, Valor: %d\n", indice, valor)
 }
-```
 // Salida:
 // Índice: 0, Valor: 10
 // Índice: 1, Valor: 20
 // Índice: 2, Valor: 30
+```
 
 
 `return`
@@ -750,8 +751,8 @@ func doble(n int) int {
 
 resultado := doble(4)
 fmt.Println("El doble es:", resultado)
-```
 // Salida: El doble es: 8
+```
 
 `select`
 
@@ -775,8 +776,8 @@ case msg1 := <-c1:
 case msg2 := <-c2:
     fmt.Println(msg2)
 }
-```
 // Salida: Puede ser "Mensaje 1" o "Mensaje 2" dependiendo de cuál canal esté listo primero.
+```
 
 `struct`
 
@@ -793,10 +794,10 @@ func main() {
     fmt.Println("Nombre:", p.Nombre)
     fmt.Println("Edad:", p.Edad)
 }
-```
 // Salida:
 // Nombre: Lucas
 // Edad: 30
+```
 
 `switch`
 
@@ -814,8 +815,8 @@ case nota >= 70:
 default:
     fmt.Println("Necesita mejorar")
 }
-```
 // Salida: Muy bien
+```
 
 `type`
 
@@ -828,8 +829,8 @@ func main() {
     var mensaje Texto = "Hola, mundo"
     fmt.Println(mensaje)
 }
-```
 // Salida: Hola, mundo
+```
 
 `var`
 
@@ -842,7 +843,7 @@ edad = 28
 
 fmt.Println("Nombre:", nombre)
 fmt.Println("Edad:", edad)
-```
 // Salida:
 // Nombre: Ana
 // Edad: 28
+```

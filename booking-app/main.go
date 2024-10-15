@@ -3,6 +3,8 @@ package main
 import (
 	"booking-app/helper"
 	"fmt" // format
+	"sync"
+	"time"
 )
 
 // Vamos a hacer un programa en CLI para reservar tickets de conferencias
@@ -22,8 +24,10 @@ type UserData struct {
 	numberOfTickets uint8
 }
 
-func main() {
+var wg sync.WaitGroup
 
+func main() {
+	defer wg.Wait()
 	greetUser() // Printea el saludo de bienvenida
 
 	for remainingTickets > 0 && len(bookings) < 50 {
@@ -39,6 +43,8 @@ func main() {
 
 		if isValidName && isValidEmail && isValidTicketnumber {
 			bookTicket(firstName, lastName, email, userTickets)
+			wg.Add(1)
+			go sendTickets(userTickets, firstName, lastName, email)
 
 		} else {
 			if !isValidName {
@@ -52,9 +58,9 @@ func main() {
 			fmt.Println("Your input is invalid, try again")
 			continue
 		}
-		firstNames := getFirstNames()
-		fmt.Printf("Bookings are: %v\n", firstNames)
 	}
+	firstNames := getFirstNames()
+	fmt.Printf("Bookings are: %v\n", firstNames)
 	fmt.Println("Thank you for booking. See you next time!")
 }
 
@@ -94,33 +100,28 @@ func getUserInput() (string, string, string, uint8) {
 	return firstName, lastName, email, userTickets
 }
 
-func bookTicket(
-	firstName string,
-	lastName string,
-	email string,
-	userTickets uint8,
-) {
+func bookTicket(firstName string, lastName string, email string, userTickets uint8) {
 
-	// create a map for a user
-	var userData UserData
-	userData.firstName = firstName
-	userData.lastName = lastName
-	userData.email = email
-	userData.numberOfTickets = userTickets
-	/*
-		o tambien
-		var userData = UserData{
-			firstName:       firstName,
-			lastName:        lastName,
-			email:           email,
-			numberOfTickets: userTickets,
-		}
-	*/
-
+	// create a struct for a user
+	var userData = UserData{
+		firstName:       firstName,
+		lastName:        lastName,
+		email:           email,
+		numberOfTickets: userTickets,
+	}
 	bookings = append(bookings, userData)
 	fmt.Printf("List of bookings: %v\n", bookings)
 	remainingTickets = remainingTickets - userTickets
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n",
 		firstName, lastName, userTickets, email)
 	fmt.Printf("There are %v tickets remaining for %v\n", remainingTickets, conferenceName)
+}
+
+func sendTickets(userTickets uint8, firstName string, lastName string, email string) {
+	defer wg.Done()
+	time.Sleep(5 * time.Second)
+	var ticket = fmt.Sprintf("%v tickets for %v %v", userTickets, firstName, lastName)
+	fmt.Println("#################")
+	fmt.Printf("Sending ticket:\n %v \nto email address %v\n", ticket, email)
+	fmt.Println("#################")
 }
