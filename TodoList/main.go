@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+// tutorial Nana de youtube crash course
+
 var taskItems []string
 
 func main() {
