@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	//"chapter-1/dup1"
+	"chapter-1/lissajous"
 )
 
 func main() {
@@ -44,4 +47,6 @@ func main() {
 	}
 
 	fmt.Println(persona)
+	//dup1.Dup()
+	lissajous.Generate(os.Stdout)
 }

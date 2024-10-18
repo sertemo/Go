@@ -2,6 +2,7 @@
 ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
 
 Repositorio para aprender conceptos del lenguaje Go siguiendo algunos tutorial de Youtube:
+- [Tiago](https://www.youtube.com/watch?v=h3fqD6IprIA&list=WL&index=1&t=1098s)
 - [Nana](https://www.youtube.com/watch?v=yyUHQIec83I)
 - [Nana Crash Crouse](https://www.youtube.com/watch?v=XCZWyN9ZbEQ&t=42s)
 - [Alex Mux](https://www.youtube.com/watch?v=8uiZC0l4Ajw&list=WL&index=2)
