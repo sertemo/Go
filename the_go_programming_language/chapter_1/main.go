@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	//"chapter-1/dup1"
-	"chapter-1/lissajous"
+	"chapter-1/fetch"
 )
 
 func main() {
@@ -47,6 +47,8 @@ func main() {
 	}
 
 	fmt.Println(persona)
-	//dup1.Dup()
-	lissajous.Generate(os.Stdout)
+	// dup1.Dup()
+	// lissajous.Generate(os.Stdout)
+
+	fetch.Fetch()
 }
