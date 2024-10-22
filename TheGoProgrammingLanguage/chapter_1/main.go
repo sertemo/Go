@@ -4,9 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
-
 	//"chapter-1/dup1"
-	"chapter-1/fetch"
 )
 
 func main() {
@@ -41,14 +39,18 @@ func main() {
 		Edad   int
 	}
 
-	persona := Persona{
+	var persona1 Persona
+
+	fmt.Printf("Persona: %v\n", persona1)
+
+	persona2 := Persona{
 		Nombre: "Juan",
 		Edad:   30,
 	}
 
-	fmt.Println(persona)
-	// dup1.Dup()
-	// lissajous.Generate(os.Stdout)
+	fmt.Println(persona2)
 
-	fetch.Fetch()
+	p := new(Persona)
+
+	fmt.Println(p)
 }
