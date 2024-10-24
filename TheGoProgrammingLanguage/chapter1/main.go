@@ -53,4 +53,11 @@ func main() {
 	p := new(Persona)
 
 	fmt.Println(p)
+
+	// Creamos un mapa
+
+	var miMapa2 map[string]int = make(map[string]int)
+
+	miMapa2["uno"] = 1
+	fmt.Println(miMapa2)
 }
