@@ -3,6 +3,7 @@
 package main
 
 import (
+	"chapter2/popcount"
 	"chapter2/tempconv"
 	"fmt"
 	"os"
@@ -20,4 +21,14 @@ func main() {
 		c := tempconv.Celsius(t)
 		fmt.Printf("%s = %s, %s = %s\n", f, tempconv.FToC(f), c, tempconv.CToF(c))
 	}
+
+	fmt.Println(popcount.PopCount(42))
+
+	x := "hello"
+	for _, x := range x {
+		fmt.Printf("%v\n", x)
+		x := x + 'A' - 'a'
+		fmt.Printf("%c\n", x)
+	}
+
 }
