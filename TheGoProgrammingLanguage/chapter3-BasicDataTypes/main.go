@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
 
@@ -50,5 +53,25 @@ func main() {
 	fmt.Printf("%d %[1]c %[1]q\n", ascii)
 	fmt.Printf("%d %[1]c %[1]q\n", unicode)
 	fmt.Printf("%d %[1]c %[1]q\n", newline)
+
+	// floats
+	var ff float32 = 16777216 // si el float32 da true si es float64 da false
+	fmt.Println(ff == ff+1)
+
+	const Avogadro = 6.02214129e23
+	fmt.Println(Avogadro)
+
+	for s := 0; s < 10; s++ {
+		fmt.Printf("x = %d ex = %8.3f\n", s, math.Exp(float64(s)))
+	}
+
+	var ty float64
+
+	fmt.Printf("0/0 = %g\n", ty/ty)
+
+	var nan float64 = math.NaN()
+	var inf float64 = math.Inf(1)
+	fmt.Println(nan == nan, nan < nan, nan > nan) // siempre es FALSE
+	fmt.Println(inf == inf, inf < inf, inf > inf)
 
 }
