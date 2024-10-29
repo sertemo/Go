@@ -1,8 +1,12 @@
 package main
 
 import (
+	"bytes"
+	basename "chapter3/basename1"
+	comma "chapter3/comma"
 	"fmt"
 	"math"
+	"strconv"
 )
 
 func main() {
@@ -74,4 +78,39 @@ func main() {
 	fmt.Println(nan == nan, nan < nan, nan > nan) // siempre es FALSE
 	fmt.Println(inf == inf, inf < inf, inf > inf)
 
+	var path string = "C:/Usuarios/usuario/Documentos/Go/src/chapter3/basename1/basename1.go"
+	s := basename.Basename(path)
+	s2 := basename.Basename2(path)
+	fmt.Println(s, s2)
+
+	fmt.Println(comma.Comma("1234567"))
+	fmt.Println(comma.Comma("1234"))
+	fmt.Println(comma.Comma("123"))
+	fmt.Println(comma.Comma("12"))
+	fmt.Println(comma.Comma("1"))
+
+	s3 := "Zabcz"
+	b := []byte(s3)
+	fmt.Println(s3, b)
+	fmt.Println(string(b))
+
+	intArray := []int{1, 2, 3, 4, 5}
+	fmt.Println(intsToString(intArray))
+	fmt.Println(intArray)
+
+	conv, _ := strconv.Atoi("1234")
+	fmt.Printf("%d, %T", conv, conv)
+}
+
+func intsToString(values []int) string {
+	var buf bytes.Buffer
+	buf.WriteByte('[')
+	for i, v := range values {
+		if i > 0 {
+			buf.WriteString(", ")
+		}
+		fmt.Fprintf(&buf, "%d", v)
+	}
+	buf.WriteByte(']')
+	return buf.String()
 }
