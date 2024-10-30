@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"math"
 	"strconv"
+	"time"
 )
 
 func main() {
@@ -99,7 +100,21 @@ func main() {
 	fmt.Println(intArray)
 
 	conv, _ := strconv.Atoi("1234")
-	fmt.Printf("%d, %T", conv, conv)
+	fmt.Printf("%d, %T\n", conv, conv)
+
+	// constantes
+	const noDelay time.Duration = 0
+	const timeout = 5*time.Minute + 30*time.Second
+	fmt.Printf("%v, %T\n", noDelay, noDelay)
+	fmt.Printf("%v, %T\n", timeout, timeout)
+
+	const (
+		a = 1
+		bb
+		c = 2
+		d
+	)
+	fmt.Println(a, bb, c, d)
 }
 
 func intsToString(values []int) string {
