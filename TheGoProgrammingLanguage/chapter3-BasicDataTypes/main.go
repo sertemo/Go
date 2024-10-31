@@ -115,6 +115,39 @@ func main() {
 		d
 	)
 	fmt.Println(a, bb, c, d)
+
+	// iota
+	type Weekday int
+
+	const (
+		Monday Weekday = iota
+		Tuesday
+		Wednesday
+		Thursday
+		Friday
+		Saturday
+		Sunday
+	)
+
+	fmt.Println(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+
+	type Flags uint
+	const (
+		FlagUp Flags = 1 << iota
+		FlagBroadcast
+		FlagLoopback
+		FlagPointToPoint
+		FlagMulticast
+	)
+
+	fmt.Printf("%v\n", FlagUp)
+	fmt.Printf("%v\n", FlagBroadcast)
+	fmt.Printf("%v\n", FlagLoopback)
+	fmt.Printf("%v\n", FlagPointToPoint)
+
+	var it int8 = 1
+
+	fmt.Println(it, it+1, it*2, it/2, it%2, -it)
 }
 
 func intsToString(values []int) string {
