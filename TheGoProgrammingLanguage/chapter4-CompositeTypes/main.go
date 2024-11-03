@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"time"
+	"sort"
 )
 
 func main() {
@@ -88,6 +89,50 @@ func main() {
 
 	lp := []int{5, 6, 7, 8, 9}
 	fmt.Println(remove(lp, 2))
+
+	// Maps
+	ages := map[string]int{
+		"charles":  33,
+		"alice": 31,
+		"lukas": 3,
+		"bob":   32,
+	}
+
+	fmt.Println(ages)
+
+	for k, v := range ages {
+		fmt.Printf("%v: %v\n", k, v)
+	}
+
+	delete(ages, "bob")
+	fmt.Println(ages)
+	fmt.Println(ages["bob"])
+	ages["bob"] ++
+	fmt.Println(ages)
+
+	// Si queremos ordenar las claves hay que hacerlo manualmente
+	var names []string
+	for name := range ages {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+	for _, name := range names {
+		fmt.Printf("%s: %d\n", name, ages[name])
+	}
+
+	var renames map[string]int
+	// renames["alice"] = 31 -> No se puede asignar a un nil map
+	fmt.Println(renames)
+
+	renames = make(map[string]int)
+	renames["alice"] = 31
+	fmt.Println(renames)
+
+	if age, ok := renames["sergio"]; !ok {
+		fmt.Println("No tengo edad", ok, age)
+	} else {
+		fmt.Println(age)
+	}
 }
 
 func equal(x, y []int) bool {
