@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"time"
 	"sort"
+	"time"
 )
 
 func main() {
@@ -77,7 +77,7 @@ func main() {
 
 	var xx []int
 	xx = append(xx, 2, 3, 5, 7, 11, 13)
-	xx = append(xx, xx...)  // apendea el propio slice a si mismo
+	xx = append(xx, xx...) // apendea el propio slice a si mismo
 	fmt.Println("xx=", xx)
 
 	miString := []string{"a", "", "b", "", "c"}
@@ -92,10 +92,10 @@ func main() {
 
 	// Maps
 	ages := map[string]int{
-		"charles":  33,
-		"alice": 31,
-		"lukas": 3,
-		"bob":   32,
+		"charles": 33,
+		"alice":   31,
+		"lukas":   3,
+		"bob":     32,
 	}
 
 	fmt.Println(ages)
@@ -107,7 +107,7 @@ func main() {
 	delete(ages, "bob")
 	fmt.Println(ages)
 	fmt.Println(ages["bob"])
-	ages["bob"] ++
+	ages["bob"]++
 	fmt.Println(ages)
 
 	// Si queremos ordenar las claves hay que hacerlo manualmente
@@ -133,6 +133,37 @@ func main() {
 	} else {
 		fmt.Println(age)
 	}
+
+	// Structs
+	type Employee struct {
+		ID        int
+		Name      string
+		Age       int
+		Adress    string
+		DoB       time.Time
+		Position  string
+		Salary    int
+		ManagerID int
+	}
+
+	var dilbert Employee
+	dilbert.Salary = 50000
+	fmt.Println("Dilberto\t", dilbert)
+
+	sergiete := Employee{Salary: 60000}
+	fmt.Println("Sergio\t", sergiete)
+
+	type address struct {
+		hostname string
+		port     int
+	}
+
+	hits := make(map[address]int)
+
+	hits[address{hostname: "golang.org", port: 443}]++
+
+	fmt.Println(hits)
+
 }
 
 func equal(x, y []int) bool {
