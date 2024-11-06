@@ -164,6 +164,28 @@ func main() {
 
 	fmt.Println(hits)
 
+	// struct embedding y anonymous fields
+	type Point struct {
+		X, Y int
+	}
+
+	type Circle struct {
+		Point
+		Radius int
+	}
+
+	type Wheel struct {
+		Circle
+		Spokes int
+	}
+
+	var w Wheel = Wheel{Circle{Point{8, 8}, 5}, 20}
+	fmt.Println(w)
+
+	var wy Wheel
+	wy.X, wy.Y, wy.Radius, wy.Spokes = 8, 8, 5, 20
+	fmt.Println(wy)
+
 }
 
 func equal(x, y []int) bool {
