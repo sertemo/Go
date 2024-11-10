@@ -1,10 +1,13 @@
 package main
 
 import (
+	"chapter4/github"
 	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 	"sort"
+	"text/template"
 	"time"
 )
 
@@ -195,6 +198,8 @@ func main() {
 		Actors []string
 	}
 
+	// Marshaling
+
 	var movies = []Movie{
 		{Title: "Casablanca", Year: 1942, Color: false,
 			Actors: []string{"Humphrey Botgart", "Ingrid Bergman"}},
@@ -212,6 +217,49 @@ func main() {
 	}
 	fmt.Printf("%s\n", data)
 
+	// Unmarshaling
+
+	var titles []struct{ Title string }
+	if err := json.Unmarshal(data, &titles); err != nil {
+		log.Fatalf("JSON unmarshaling failed: %s", err)
+	}
+	fmt.Println(titles)
+
+	result1, err := github.SearchIssues(os.Args[1:])
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%d issues:\n", result1.TotalCount)
+	for _, item := range result1.Items {
+		fmt.Printf("#%-5d %9.9s %.55s\n",
+			item.Number, item.User.Login, item.Title)
+	}
+
+	// Text and HTML Templates
+	const templ = `{{.TotalCount}} issues:
+	{{range .Items}}--------------------------------------
+	Number: {{.Number}} 
+	User:   {{.User.Login}}
+	Title:  {{.Title | printf "%.64s"}}
+	Age:    {{.CreatedAt | daysAgo}} days
+	{{end}}`
+
+	report, err := template.New("report").Funcs(template.FuncMap{"daysAgo": daysAgo}).Parse(templ)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	result2, err := github.SearchIssues(os.Args[1:])
+	if err != nil {
+		log.Fatal(err)
+	}
+	if err := report.Execute(os.Stdout, result2); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func daysAgo(t time.Time) int {
+	return int(time.Since(t).Hours() / 24)
 }
 
 func equal(x, y []int) bool {
